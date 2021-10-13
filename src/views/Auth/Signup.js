@@ -37,7 +37,8 @@ const Signup = (props) => {
       const data = { name, email, password };
       const signUpUser = await (
         await fetch(
-          "http://localhost:3001/api/urresourcesnetwork/users/register",
+          // "http://localhost:3001/api/urresourcesnetwork/users/register",
+          "https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/users/register",
           {
             method: "POST",
             body: JSON.stringify(data),

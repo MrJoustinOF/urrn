@@ -35,16 +35,21 @@ const CreateResource = () => {
         desc,
         user: { id, name, avatar },
       };
-      const query = await (
-        await fetch("http://localhost:3001/api/urresourcesnetwork/posts/", {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        })
-      ).json();
+      const query =
+        await // await fetch("http://localhost:3001/api/urresourcesnetwork/posts/", {
+        (
+          await fetch(
+            "https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts/",
+            {
+              method: "POST",
+              body: JSON.stringify(data),
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+            }
+          )
+        ).json();
 
       if (query.msg === "post published") {
         setPublished(true);

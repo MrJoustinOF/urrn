@@ -9,7 +9,10 @@ const Resource = () => {
   const [post, setPost] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/urresourcesnetwork/posts/${id}`)
+    // fetch(`http://localhost:3001/api/urresourcesnetwork/posts/${id}`)
+    fetch(
+      `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts/${id}`
+    )
       .then((res) => res.json())
       .then((json) => setPost(json));
     return () => {};

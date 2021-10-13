@@ -10,11 +10,17 @@ const Profile = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/urresourcesnetwork/users/${id}`)
+    // fetch(`http://localhost:3001/api/urresourcesnetwork/users/${id}`)
+    fetch(
+      `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/users/${id}`
+    )
       .then((res) => res.json())
       .then((json) => setUser(json));
 
-    fetch(`http://localhost:3001/api/urresourcesnetwork/posts/user/${id}`)
+    // fetch(`http://localhost:3001/api/urresourcesnetwork/posts/user/${id}`)
+    fetch(
+      `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts/user/${id}`
+    )
       .then((res) => res.json())
       .then((json) => setPosts(json));
 

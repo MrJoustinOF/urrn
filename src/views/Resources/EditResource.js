@@ -17,7 +17,10 @@ const EditResource = () => {
 
   useEffect(() => {
     const fetchPost = () => {
-      fetch(`http://localhost:3001/api/urresourcesnetwork/posts/${id}`)
+      // fetch(`http://localhost:3001/api/urresourcesnetwork/posts/${id}`)
+      fetch(
+        `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts/${id}`
+      )
         .then((res) => res.json())
         .then((json) => {
           setPost(json);
@@ -51,7 +54,8 @@ const EditResource = () => {
     if (errs.length === 0) {
       const query = await (
         await fetch(
-          `http://localhost:3001/api/urresourcesnetwork/posts/${post._id}`,
+          // `http://localhost:3001/api/urresourcesnetwork/posts/${post._id}`,
+          `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts/${post._id}`,
           {
             method: "PUT",
             body: JSON.stringify({

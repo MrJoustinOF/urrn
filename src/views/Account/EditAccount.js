@@ -76,7 +76,8 @@ const EditAccount = () => {
       let hashedPass = hash.generate(password);
       const queryUser = await (
         await fetch(
-          `http://localhost:3001/api/urresourcesnetwork/users/${user.id}`,
+          // `http://localhost:3001/api/urresourcesnetwork/users/${user.id}`,
+          `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/users/${user.id}`,
           {
             method: "PUT",
             body: JSON.stringify({
@@ -100,7 +101,8 @@ const EditAccount = () => {
       ) {
         const posts = await (
           await fetch(
-            `http://localhost:3001/api/urresourcesnetwork/posts/user/${user.id}`
+            // `http://localhost:3001/api/urresourcesnetwork/posts/user/${user.id}`
+            `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts/user/${user.id}`
           )
         ).json();
 
@@ -111,7 +113,8 @@ const EditAccount = () => {
 
         await (
           await fetch(
-            `http://localhost:3001/api/urresourcesnetwork/posts/user/${user.id}`,
+            // `http://localhost:3001/api/urresourcesnetwork/posts/user/${user.id}`,
+            `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts/user/${user.id}`,
             {
               method: "PUT",
               body: JSON.stringify({ posts }),

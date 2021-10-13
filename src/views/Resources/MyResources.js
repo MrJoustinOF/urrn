@@ -13,22 +13,30 @@ const MyResources = () => {
   };
 
   const deletePost = async (id) => {
-    const query = await (
-      await fetch(`http://localhost:3001/api/urresourcesnetwork/posts/${id}`, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      })
-    ).json();
+    const query =
+      await // await fetch(`http://localhost:3001/api/urresourcesnetwork/posts/${id}`, {
+      (
+        await fetch(
+          `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          }
+        )
+      ).json();
     if (query.msg === "post deleted") {
       fetchPosts();
     }
   };
 
   const fetchPosts = () => {
-    fetch(`http://localhost:3001/api/urresourcesnetwork/posts/user/${user.id}`)
+    // fetch(`http://localhost:3001/api/urresourcesnetwork/posts/user/${user.id}`)
+    fetch(
+      `https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts/user/${user.id}`
+    )
       .then((res) => res.json())
       .then((json) => {
         json.reverse();

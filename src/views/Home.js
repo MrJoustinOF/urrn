@@ -7,7 +7,8 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/urresourcesnetwork/posts")
+    // fetch("http://localhost:3001/api/urresourcesnetwork/posts")
+    fetch("https://ur-apis-center.herokuapp.com/api/urresourcesnetwork/posts")
       .then((res) => res.json())
       .then((json) => setPosts(json.reverse()));
     return () => {};
